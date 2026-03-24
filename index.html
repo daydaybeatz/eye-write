@@ -217,6 +217,24 @@
         min-width:62px;
       }
     }
+
+    @media print{
+      body *{
+        visibility:hidden;
+      }
+
+      #output{
+        visibility:visible;
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+        min-height:auto;
+        border:1px solid #000;
+        background:#fff;
+        color:#000;
+      }
+    }
   </style>
 </head>
 <body>
@@ -500,7 +518,7 @@
 
     function printList() {
       window.print();
-      setStatus("Opened print dialog.", "good");
+      setStatus("Opened print dialog for selected contacts list.", "good");
     }
 
     function clearAll() {
