@@ -263,6 +263,7 @@
       <div class="row">
         <button id="copyBtn">Copy List</button>
         <button id="downloadBtn" class="secondary">Download TXT</button>
+        <button id="printBtn" class="secondary">Print List</button>
         <button id="clearBtn" class="danger">Clear All</button>
       </div>
     </div>
@@ -296,6 +297,7 @@
     const cylinderFilter = document.getElementById("cylinderFilter");
     const copyBtn = document.getElementById("copyBtn");
     const downloadBtn = document.getElementById("downloadBtn");
+    const printBtn = document.getElementById("printBtn");
     const clearBtn = document.getElementById("clearBtn");
 
     let selected = new Set();
@@ -496,6 +498,11 @@
       setStatus("TXT downloaded.", "good");
     }
 
+    function printList() {
+      window.print();
+      setStatus("Opened print dialog.", "good");
+    }
+
     function clearAll() {
       if (!confirm("Clear all selected contacts?")) return;
       selected.clear();
@@ -529,6 +536,7 @@
 
     copyBtn.addEventListener("click", copyList);
     downloadBtn.addEventListener("click", downloadList);
+    printBtn.addEventListener("click", printList);
     clearBtn.addEventListener("click", clearAll);
 
     loadSelected();
